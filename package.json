@@ -1,0 +1,19 @@
+{
+  "name": "projectvapeur",
+  "version": "1.0.0",
+  "description": "package for the projectvapeur",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiniauxMatteo2/Project-Vapeur.git"
+  },
+  "author": "Giniaux-Flechet-Corteval",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GiniauxMatteo2/Project-Vapeur/issues"
+  },
+  "homepage": "https://github.com/GiniauxMatteo2/Project-Vapeur#readme"
+}
