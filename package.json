@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/GiniauxMatteo2/Project-Vapeur/issues"
   },
-  "homepage": "https://github.com/GiniauxMatteo2/Project-Vapeur#readme"
+  "homepage": "https://github.com/GiniauxMatteo2/Project-Vapeur#readme",
+  "dependencies": {
+    "@prisma/client": "^6.0.1",
+    "express": "^4.21.1",
+    "hbs": "^4.2.0",
+    "prisma": "^6.0.1",
+    "sqlite3": "^5.1.7"
+  }
 }
