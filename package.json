@@ -4,7 +4,9 @@
   "description": "package for the projectvapeur",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js",          
+    "server": "nodemon main.js"     
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,8 @@
     "hbs": "^4.2.0",
     "prisma": "^6.0.1",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
