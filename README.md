@@ -20,6 +20,16 @@ Vapeur is a dynamic web application that allows you to manage a collection of vi
 ## Installation
 
 Follow these steps to install and run the project locally:
+- npm init -y
+- npm install express
+- npm install prisma @prisma/client sqlite3
+- npx prisma generate
+- npm install hbs
+To start the server in production :
+- npm run start
+To start the development server :
+- npm install --save-dev nodemon
+- npm run server
 
 ### Prerequisites
 
