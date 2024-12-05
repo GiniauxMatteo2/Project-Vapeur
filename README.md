@@ -15,21 +15,6 @@ Vapeur is a dynamic web application that allows you to manage a collection of vi
 - **Database:** SQLite with Prisma
 - **Frontend:** Handlebars
 
----
-
-## Installation
-
-Follow these steps to install and run the project locally:
-- npm init -y
-- npm install express
-- npm install prisma @prisma/client sqlite3
-- npx prisma generate
-- npm install hbs
-To start the server in production :
-- npm run start
-To start the development server :
-- npm install --save-dev nodemon
-- npm run server
 
 ### Prerequisites
 
@@ -42,4 +27,21 @@ Make sure you have the following installed on your machine:
 1. **Clone the repository:**
    First, clone the repository to your local machine using the following command:
    ```bash
-   git clone https://github.com/your-username/vapeur.git
+   git clone https://github.com/GiniauxMatteo2/Project-Vapeur
+
+   Follow these steps to install and run the project locally:
+
+   - npm init -y
+   - npm install express
+   - npm install prisma @prisma/client sqlite3
+   - npx prisma generate
+   - npm install hbs
+
+   To start the server in production :
+
+   - npm run start
+
+   To start the development server :
+   
+   - npm install --save-dev nodemon
+   - npm run server
