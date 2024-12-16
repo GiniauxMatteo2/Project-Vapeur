@@ -25,16 +25,21 @@ app.get("/", async (req, res) => {
     // On peut aller chercher des templates dans les sous-dossiers (e.g. `movies/details`).
     res.render("index");
 });
-// Route to list all genres
+
+// Route to display genres
 app.get("/genres", async (req, res) => {
     try {
+        // Fetch all genres
         const genres = await prisma.genre.findMany();
-        res.render("genres/index", { genres });
+        
+        // Render the showgenre.hbs template and pass genres
+        res.render("genres", { genres });
     } catch (error) {
-        console.error(error);
+        console.error("Error fetching genres:", error.message);
         res.status(500).send("An error occurred while fetching genres.");
     }
 });
+
 
 // Route to display genre details (including games in each genre)
 app.get("/genres/show", async (req, res) => {
@@ -49,6 +54,8 @@ app.get("/genres/show", async (req, res) => {
     }
 });
 
+
+// Route to display games for a specific genre
 app.get("/genres/:id/games", async (req, res) => {
     try {
         const genreId = parseInt(req.params.id, 10);
@@ -57,7 +64,7 @@ app.get("/genres/:id/games", async (req, res) => {
         const genreWithGames = await prisma.genre.findUnique({
             where: { id: genreId },
             include: {
-                games: true, // Include all games for this genre
+                games: true, // Include associated games
             },
         });
 
@@ -68,13 +75,14 @@ app.get("/genres/:id/games", async (req, res) => {
         // Render the showgames.hbs template with the genre and its games
         res.render("genres/showgames", {
             genre: genreWithGames.name, // Genre name
-            games: genreWithGames.games, // List of games
+            games: genreWithGames.games, // Games for the selected genre
         });
     } catch (error) {
         console.error("Error fetching games for genre:", error.message);
         res.status(500).send("An error occurred while fetching games for this genre.");
     }
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
