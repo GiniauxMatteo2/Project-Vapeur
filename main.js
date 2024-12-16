@@ -19,6 +19,41 @@ const genresRoutes = require('./routes/genres'); // Routes requise pour les genr
 app.use('/genres', genresRoutes);
 
 
+
+
+
+
+// Fonction pour initialiser les genres de jeux dans la base de données
+async function seedGenres() {
+    const genres = ['Action', 'Aventure', 'RPG', 'Simulation', 'Sport', 'MMORPG'];
+  
+    // Parcours de chaque genre et vérification s'il existe déjà
+    for (const genre of genres) {
+      const existingGenre = await prisma.genre.findUnique({
+        where: {
+          name: genre,
+        },
+      });
+  
+      if (!existingGenre) {
+        // Si le genre n'existe pas, on l'ajoute
+        await prisma.genre.create({
+          data: {
+            name: genre,
+          },
+        });
+        console.log(`${genre} ajouté avec succès !`);
+      } else {
+        console.log(`${genre} existe déjà.`);
+      }
+    }
+  }
+
+seedGenres();
+
+
+
+
 // Configuration de Handlebars pour Express
 app.set("view engine", "hbs"); // On définit le moteur de template que Express va utiliser
 app.set("views", path.join(__dirname, "views")); // On définit le dossier des vues (dans lequel se trouvent les fichiers .hbs)

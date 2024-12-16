@@ -12,7 +12,7 @@
         <ul>
             {{#each games}}
                 <li>
-                    <strong>{{title}}</strong> - {{description}} (Released: {{formatTime releaseDate}})
+                    <a href="/games/{{id}}/details"><strong>{{title}}</strong></a> - {{description}} (Released: {{formatTime releaseDate}})
                 </li>
             {{/each}}
         </ul>
