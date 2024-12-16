@@ -20,9 +20,6 @@ app.use('/genres', genresRoutes);
 
 
 
-
-
-
 // Fonction pour initialiser les genres de jeux dans la base de données
 async function seedGenres() {
     const genres = ['Action', 'Aventure', 'RPG', 'Simulation', 'Sport', 'MMORPG'];
@@ -50,6 +47,7 @@ async function seedGenres() {
   }
 
 seedGenres();
+
 
 
 

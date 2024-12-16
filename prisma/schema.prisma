@@ -18,11 +18,6 @@ model Genre {
   games Games[] // Relation avec le modèle Games
 }
 
-model Genre {
-  id    Int    @id @default(autoincrement())
-  name  String @unique
-  games Games[] // Relation avec le modèle Games
-}
 
 model Games {
   id            Int           @id @default(autoincrement())
