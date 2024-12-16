@@ -30,9 +30,6 @@ router.get('/:publisher/games', async (req, res) => {
     // Extract all games into a single array
     const games = publishersWithGames.flatMap(publisher => publisher.games);
 
-    // Log the games for debugging purposes
-    console.log(games);
-
     // Render the template with the list of games
     res.render('publishers/games', { publisher, games });
   } catch (err) {
