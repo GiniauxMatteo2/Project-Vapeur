@@ -14,7 +14,7 @@ app.use('/publishers', publisherRoutes);
 
 const genresRoutes = require('./routes/genres'); // Routes requise pour les genres
 app.use('/genres', genresRoutes);
-
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuration de Handlebars pour Express
 app.set("view engine", "hbs"); // On définit le moteur de template que Express va utiliser

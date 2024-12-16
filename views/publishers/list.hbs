@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
 <h1>Liste des éditeurs</h1>
 <ul>
   {{#each publishers}}
@@ -17,6 +21,5 @@
 <h2>Ajouter un nouvel éditeur</h2>
 <form action="/publishers/create" method="POST">
   <input type="text" name="publisher" placeholder="Nom de l'éditeur" required>
-  <input type="number" name="gameId" placeholder="ID du jeu" required>
   <button type="submit">Créer</button>
 </form>
