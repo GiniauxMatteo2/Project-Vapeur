@@ -21,17 +21,26 @@ router.get('/:publisher/games', async (req, res) => {
   const { publisher } = req.params;
 
   try {
-    const games = await prisma.gamePublishers.findMany({
+    // Fetch all game publishers with the specified publisher name
+    const publishersWithGames = await prisma.gamePublishers.findMany({
       where: { publisher },
-      include: { game: true }, // Inclure les informations sur les jeux
+      include: { games: true }, // Include related games
     });
 
+    // Extract all games into a single array
+    const games = publishersWithGames.flatMap(publisher => publisher.games);
+
+    // Log the games for debugging purposes
+    console.log(games);
+
+    // Render the template with the list of games
     res.render('publishers/games', { publisher, games });
   } catch (err) {
     console.error(err);
     res.status(500).send('Erreur lors de la récupération des jeux de cet éditeur.');
   }
 });
+
 
 // Créer un nouvel éditeur
 router.post('/create', async (req, res) => {
