@@ -12,29 +12,26 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+model Genre {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  games Games[] // Relation avec le modèle Games
+}
 
 model Games {
-  id              Int              @id @default(autoincrement())
-  title           String
-  description     String
-  releaseDate     DateTime
-  gameTypes       GamesTypes[]     // Relationship with GamesTypes
-  gamePublishers  GamePublishers[] // Relationship with GamePublishers
+  id            Int           @id @default(autoincrement())
+  title         String
+  description   String
+  releaseDate   DateTime
+  genreId       Int
+  publishersId  Int
+  genre       Genre           @relation(fields: [genreId], references: [id]) // Relation avec Genre
+  publishers  GamePublishers  @relation(fields: [publishersId], references: [id])
 }
 
-model GamesTypes {
-  gameId Int
-  type   String
-
-  game   Games @relation(fields: [gameId], references: [id]) // Relationship with Games
-
-  @@id([gameId, type]) // Composite primary key
-}
 
 model GamePublishers {
   id        Int    @id @default(autoincrement())
   publisher String
-  gameId    Int
-
-  game Games @relation(fields: [gameId], references: [id]) // Relationship with Games
+  games     Games[]
 }

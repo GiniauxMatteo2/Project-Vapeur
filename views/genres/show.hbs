@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genre Details</title>
+</head>
+<body>
+    <h1>Genre Details</h1>
+    <ul>
+        {{#each genres}}
+            <li>
+                <strong>{{this.name}}</strong>
+                <ul>
+                    {{#each this.games}}
+                        <li>{{this.title}} - {{this.description}}</li>
+                    {{/each}}
+                </ul>
+            </li>
+        {{/each}}
+    </ul>
+    <a href="/genres">Back to Genres</a>
+</body>
+</html>
