@@ -17,18 +17,6 @@ router.get('/', async (req, res) => {
 });
 
 
-// Route to display genre details (including games in each genre)
-router.get("/show", async (req, res) => {
-    try {
-        const genres = await prisma.genre.findMany({
-            include: { games: true }, // Fetch associated games
-        });
-        res.render("genres/show", { genres });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("An error occurred while fetching genre details.");
-    }
-});
 
 
 // Route to display games for a specific genre

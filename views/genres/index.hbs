@@ -6,8 +6,16 @@
     <title>Genres</title>
 </head>
 <body>
+    <h1>Genres</h1>
+
     <ul>
-        <li><a href="/genres/show">View all genres</a></li>
+        {{#each genres}}
+            <li>
+                <a href="/genres/{{id}}/games">{{name}}</a>
+            </li>
+        {{/each}}
     </ul>
+
+    <a href="/">Back to Home</a>
 </body>
 </html>

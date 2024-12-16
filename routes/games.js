@@ -84,7 +84,7 @@ try {
         publishersId: parseInt(publishersId),
     },
     });
-    res.redirect(`/games/${gameId}`);
+    res.redirect(`/games/${gameId}/details`);
 } catch (error) {
     console.error(error);
     res.status(500).send("Erreur lors de la mise à jour du jeu !");
