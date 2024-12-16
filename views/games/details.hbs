@@ -1,0 +1,10 @@
+<h1>Détails du jeu</h1>
+
+<h2>{{game.title}}</h2>
+<p><strong>Description :</strong> {{game.description}}</p>
+<p><strong>Genre :</strong> {{game.genre.name}}</p>
+<p><strong>Éditeur :</strong> {{game.publishers.publisher}}</p>
+<p><strong>Date de sortie :</strong> {{formatTime game.releaseDate}}</p>
+
+<a href="/games/{{game.id}}/edit">Modifier</a>
+<a href="/games">Retour à la liste</a>

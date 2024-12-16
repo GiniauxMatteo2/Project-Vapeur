@@ -1,0 +1,9 @@
+<h1>Liste des jeux vidéo</h1>
+ <a href="/games/new">Ajouter des jeux</a>
+<ul>
+  {{#each games}}
+    <li>
+      <a href="/games/{{this.id}}details/"><h2>{{this.title}}</h2></a>
+    </li>
+  {{/each}}
+</ul>

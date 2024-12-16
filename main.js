@@ -8,6 +8,9 @@ const app = express();
 const prisma = new PrismaClient();
 const PORT = 3008;
 
+const gameRoutes = require('./routes/games'); 
+app.use('/games', gameRoutes); 
+
 
 const publisherRoutes = require('./routes/publishers'); // Routes requise pour les éditeurs
 app.use('/publishers', publisherRoutes);
@@ -25,6 +28,41 @@ hbs.registerPartials(path.join(__dirname, "views", "partials")); // On définit 
 // On définit un middleware pour parser les données des requêtes entrantes.
 // Cela permet de récupérer les données envoyées via des formulaires et les rendre disponibles dans req.body.
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+//Helper global pour formater l'heure
+hbs.registerHelper("formatTime", (dateString) => {
+    if (!dateString) return "Date non disponible";
+    
+    const date = new Date(dateString);
+  
+    // Formatage natif : jour/mois/année, heure:minute
+    const options = {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+      hour12: false,
+    };
+  
+    return date.toLocaleString("fr-FR", options);
+  });
+
+// Helper pour formater une date en "YYYY-MM-DD" (format HTML5)
+hbs.registerHelper("formatForInput", (dateString) => {
+  if (!dateString) return "";
+
+  const date = new Date(dateString);
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Mois entre 01-12
+  const day = String(date.getDate()).padStart(2, "0"); // Jour entre 01-31
+
+  return `${year}-${month}-${day}`;
+});
+
+
+// Enregistrer un helper Handlebars pour vérifier l'égalité
+hbs.registerHelper("eq", (a, b) => a === b);
 
 
 app.get("/", async (req, res) => {
