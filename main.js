@@ -17,7 +17,7 @@ app.use('/publishers', publisherRoutes);
 
 const genresRoutes = require('./routes/genres'); // Routes requise pour les genres
 app.use('/genres', genresRoutes);
-
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Fonction pour initialiser les genres de jeux dans la base de données
