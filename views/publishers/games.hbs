@@ -2,7 +2,7 @@
 <ul>
   {{#each games}}
     <li>
-      <a href="/games/{{this.game.id}}">{{this.game.title}}</a> - {{this.game.releaseDate}}
+      <a href="/games/{{id}}">{{title}}</a> - {{formatTime releaseDate}}
     </li>
   {{/each}}
 </ul>

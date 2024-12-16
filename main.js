@@ -12,6 +12,10 @@ const PORT = 3008;
 const publisherRoutes = require('./routes/publishers'); // Routes requise pour les éditeurs
 app.use('/publishers', publisherRoutes);
 
+const genresRoutes = require('./routes/genres'); // Routes requise pour les genres
+app.use('/genres', genresRoutes);
+
+
 // Configuration de Handlebars pour Express
 app.set("view engine", "hbs"); // On définit le moteur de template que Express va utiliser
 app.set("views", path.join(__dirname, "views")); // On définit le dossier des vues (dans lequel se trouvent les fichiers .hbs)
@@ -30,65 +34,38 @@ app.get("/", async (req, res) => {
     res.render("index");
 });
 
-// Route to display genres
-app.get("/genres", async (req, res) => {
-    try {
-        // Fetch all genres
-        const genres = await prisma.genre.findMany();
-        
-        // Render the showgenre.hbs template and pass genres
-        res.render("genres", { genres });
-    } catch (error) {
-        console.error("Error fetching genres:", error.message);
-        res.status(500).send("An error occurred while fetching genres.");
-    }
-});
-
-
-// Route to display genre details (including games in each genre)
-app.get("/genres/show", async (req, res) => {
-    try {
-        const genres = await prisma.genre.findMany({
-            include: { games: true }, // Fetch associated games
-        });
-        res.render("genres/show", { genres });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("An error occurred while fetching genre details.");
-    }
-});
-
-
-// Route to display games for a specific genre
-app.get("/genres/:id/games", async (req, res) => {
-    try {
-        const genreId = parseInt(req.params.id, 10);
-
-        // Fetch the genre and its associated games
-        const genreWithGames = await prisma.genre.findUnique({
-            where: { id: genreId },
-            include: {
-                games: true, // Include associated games
-            },
-        });
-
-        if (!genreWithGames) {
-            return res.status(404).send("Genre not found.");
-        }
-
-        // Render the showgames.hbs template with the genre and its games
-        res.render("genres/showgames", {
-            genre: genreWithGames.name, // Genre name
-            games: genreWithGames.games, // Games for the selected genre
-        });
-    } catch (error) {
-        console.error("Error fetching games for genre:", error.message);
-        res.status(500).send("An error occurred while fetching games for this genre.");
-    }
-});
-
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+//Helper global pour formater l'heure
+hbs.registerHelper("formatTime", (dateString) => {
+    if (!dateString) return "Date non disponible";
+   
+    const date = new Date(dateString);
+ 
+    // Formatage natif : jour/mois/année, heure:minute
+    const options = {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+      hour12: false,
+    };
+ 
+    return date.toLocaleString("fr-FR", options);
+  });
+
+// Helper pour formater une date en "YYYY-MM-DD" (format HTML5)
+hbs.registerHelper("formatForInput", (dateString) => {
+  if (!dateString) return "";
+
+  const date = new Date(dateString);
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Mois entre 01-12
+  const day = String(date.getDate()).padStart(2, "0"); // Jour entre 01-31
+
+  return `${year}-${month}-${day}`;
 });
 
