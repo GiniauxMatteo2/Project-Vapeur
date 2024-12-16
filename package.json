@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js",          
-    "server": "nodemon main.js"     
+    "start": "node main.js",
+    "server": "nodemon main.js"
   },
   "repository": {
     "type": "git",
@@ -20,12 +20,12 @@
   "homepage": "https://github.com/GiniauxMatteo2/Project-Vapeur#readme",
   "dependencies": {
     "@prisma/client": "^6.0.1",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "hbs": "^4.2.0",
     "prisma": "^6.0.1",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.9"
   }
 }

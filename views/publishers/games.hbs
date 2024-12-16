@@ -1,0 +1,9 @@
+<h1>Jeux de l'éditeur : {{publisher}}</h1>
+<ul>
+  {{#each games}}
+    <li>
+      <a href="/games/{{this.game.id}}">{{this.game.title}}</a> - {{this.game.releaseDate}}
+    </li>
+  {{/each}}
+</ul>
+<a href="/publishers">Retour à la liste des éditeurs</a>

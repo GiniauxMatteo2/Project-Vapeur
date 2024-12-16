@@ -8,6 +8,10 @@ const app = express();
 const prisma = new PrismaClient();
 const PORT = 3008;
 
+
+const publisherRoutes = require('./routes/publishers'); // Routes requise pour les éditeurs
+app.use('/publishers', publisherRoutes);
+
 // Configuration de Handlebars pour Express
 app.set("view engine", "hbs"); // On définit le moteur de template que Express va utiliser
 app.set("views", path.join(__dirname, "views")); // On définit le dossier des vues (dans lequel se trouvent les fichiers .hbs)
@@ -25,9 +29,6 @@ app.get("/", async (req, res) => {
     // On peut aller chercher des templates dans les sous-dossiers (e.g. `movies/details`).
     res.render("index");
 });
-
-
-
 
 
 app.listen(PORT, () => {
