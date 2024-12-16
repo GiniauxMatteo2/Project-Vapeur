@@ -39,7 +39,7 @@ router.get("/:id/details/", async (req, res) => {
         return res.status(404).send("Jeu non trouvé");
       }
   
-      res.render("games/detail", { game });
+      res.render("games/details", { game });
     } catch (error) {
       console.error(error);
       res.status(500).send("Erreur lors de la récupération du jeu");
