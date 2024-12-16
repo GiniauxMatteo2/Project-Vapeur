@@ -4,6 +4,9 @@
   {{#each games}}
     <li>
       <a href="/games/{{this.id}}/details/"><h2>{{this.title}}</h2></a>
+      <form action="/games/{{this.id}}/delete/" method="POST">
+        <button type="submit">Supprimer</button>
+      </form>
     </li>
   {{/each}}
 </ul>
