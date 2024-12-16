@@ -18,6 +18,23 @@ router.get("/", async (req, res) => {
     res.render("games/index", { games });
 });
 
+router.post("/:id/delete/", async (req, res) => {
+    const { id } = req.params;
+    
+    try {
+        // Utilisation de Prisma pour supprimer le jeu basé sur l'ID
+        await prisma.games.delete({
+          where: { id: Number(id) }, // Assure-toi que l'ID est bien un nombre
+        });
+    
+        console.log(`Le jeu avec l'ID ${id} a été supprimé avec succès.`);
+        res.redirect("/games"); // Redirige vers la liste des jeux après suppression
+      } catch (error) {
+        console.error("Erreur lors de la suppression du jeu :", error);
+        res.status(500).send("Une erreur est survenue lors de la suppression du jeu.");
+      }
+  });
+
 // Route pour afficher un jeu par ID
 router.get("/:id/details/", async (req, res) => {
     const gameId = parseInt(req.params.id);
@@ -84,7 +101,7 @@ try {
         publishersId: parseInt(publishersId),
     },
     });
-    res.redirect(`/games/${gameId}`);
+    res.redirect(`/games/${gameId}/details`);
 } catch (error) {
     console.error(error);
     res.status(500).send("Erreur lors de la mise à jour du jeu !");
