@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const prisma = require('../prismaClient');
 const bodyParser = require('body-parser');
-
-
 // make it so we can acess the data of features/change (now can parse url-encoded data from forms)
 router.use(bodyParser.urlencoded({ extended: true }));
 
