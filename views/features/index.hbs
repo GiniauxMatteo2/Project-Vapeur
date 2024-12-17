@@ -3,7 +3,7 @@
 <ul>
   {{#each featuredGames}}
     <li>
-      <strong>{{game.title}}</strong> - {{game.description}} (Released: {{game.releaseDate}})
+      <strong>{{game.title}}</strong> - {{game.description}} (Released: {{formatTime game.releaseDate}})
       <a href="/features/delete/{{id}}" style="color: red;">Remove</a>
     </li>
   {{/each}}
