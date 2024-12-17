@@ -6,7 +6,7 @@
 <ul>
   {{#each publishers}}
     <li>
-      <a href="/publishers/{{this.publisher}}/games">{{this.publisher}}</a>
+      <a href="/publishers/game/{{publisher}}">{{publisher}}</a>
       <form action="/publishers/delete/{{this.id}}" method="POST" style="display:inline;">
         <button type="submit">Delete</button>
       </form>
