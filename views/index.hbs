@@ -1,2 +1,15 @@
 <h1>Welcome</h1>
-    
+
+<h2>Featured Games</h2>
+<ul>
+  {{#if featuredGames.length}}
+    {{#each featuredGames}}
+      <li>
+        <strong>{{game.title}}</strong> - {{game.description}} 
+      </li>
+    {{/each}}
+  {{else}}
+    <p>No featured games yet!</p>
+  {{/if}}
+</ul>
+<a href="features/">pour aller vers le sfeatured</a>

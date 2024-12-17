@@ -1,0 +1,12 @@
+<h1>Manage Featured Games</h1>
+
+<ul>
+  {{#each featuredGames}}
+    <li>
+      <strong>{{game.title}}</strong> - {{game.description}} (Released: {{game.releaseDate}})
+      <a href="/features/delete/{{id}}" style="color: red;">Remove</a>
+    </li>
+  {{/each}}
+</ul>
+
+<a href="/features/change">Change Featured Games</a>
