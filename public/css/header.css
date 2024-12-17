@@ -23,6 +23,7 @@ header {
   
   header nav ul li {
     margin: 0;
+    background-color: #1f1f1f;
   }
   
   header nav ul li a {

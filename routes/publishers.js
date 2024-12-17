@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const prisma = require('../prismaClient');
 const bodyParser = require('body-parser');
-// make it so we can acess the data of features/change (now can parse url-encoded data from forms)
+
 router.use(bodyParser.urlencoded({ extended: true }));
 
-// Route 1: Redirect to the index.hbs page showing all publishers
+// Redirect to the index.hbs page showing all publishers
 router.get('/', async (req, res) => {
   try {
     const publishers = await prisma.gamePublishers.findMany({
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Route 2: Show games by a specific publisher
+// Show games by a specific publisher
 router.get('/game/:publisher', async (req, res) => {
   const { publisher } = req.params;
 
@@ -43,25 +43,25 @@ router.post('/delete/:id', async (req, res) => {
   try {
     const publisherId = parseInt(id);
 
-    // Step 1: Find all games associated with the publisher
+    // Find all games associated with the publisher
     const games = await prisma.games.findMany({
       where: { publishersId: publisherId },
     });
 
-    // Step 2: Extract game IDs
+    //  Extract game IDs
     const gameIds = games.map(game => game.id);
 
-    // Step 3: Delete all features linked to these games
+    // Delete all features linked to these games
     await prisma.gameFeatures.deleteMany({
       where: { gameId: { in: gameIds } },
     });
 
-    // Step 4: Delete all games linked to the publisher
+    // Delete all games linked to the publisher
     await prisma.games.deleteMany({
       where: { publishersId: publisherId },
     });
 
-    // Step 5: Delete the publisher itself
+    // Delete the publisher itself
     await prisma.gamePublishers.delete({
       where: { id: publisherId },
     });
@@ -74,8 +74,7 @@ router.post('/delete/:id', async (req, res) => {
 });
 
 
-
-// Route 4: Create a new publisher
+// Create a new publisher
 router.post('/new', async (req, res) => {
   const { publisher } = req.body;
 

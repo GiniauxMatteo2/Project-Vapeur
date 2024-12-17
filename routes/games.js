@@ -24,7 +24,7 @@ router.post("/:id/delete/", async (req, res) => {
     try {
         // Utilisation de Prisma pour supprimer le jeu basé sur l'ID
         await prisma.games.delete({
-          where: { id: Number(id) }, // Assure-toi que l'ID est bien un nombre
+          where: { id: Number(id) }, 
         });
     
         console.log(`Le jeu avec l'ID ${id} a été supprimé avec succès.`);
@@ -133,7 +133,7 @@ router.post("/new", async (req, res) => {
         data: {
         title,
         description,
-        releaseDate: new Date(releaseDate), // Assurez-vous que la date est au bon format
+        releaseDate: new Date(releaseDate), 
         genreId: parseInt(genreId),
         publishersId: parseInt(publishersId),
         },
