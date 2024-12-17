@@ -6,11 +6,12 @@
 <ul>
   {{#each publishers}}
     <li>
-      <a href="/publishers/game/{{this.publisher}}">{{this.publisher}}</a>
+      <a href="/publishers/{{this.publisher}}/games">{{this.publisher}}</a>
       <form action="/publishers/delete/{{this.id}}" method="POST" style="display:inline;">
-        <button type="submit">Supprimer</button>
+        <button type="submit">Delete</button>
       </form>
-    </li>
+      <a href="/publishers/edit/{{this.id}}" style="margin-left: 10px;">Edit</a>
+      </li>
   {{/each}}
 </ul>
 
@@ -19,3 +20,6 @@
   <input type="text" name="publisher" placeholder="Nom de l'éditeur" required>
   <button type="submit">Créer</button>
 </form>
+
+
+

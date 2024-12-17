@@ -90,4 +90,46 @@ router.post('/new', async (req, res) => {
   }
 });
 
+// Display form to edit a publisher
+router.get('/edit/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // Find the publisher by ID
+    const publisher = await prisma.gamePublishers.findUnique({
+      where: { id: parseInt(id) },
+    });
+
+    if (!publisher) {
+      return res.status(404).send('Publisher not found.');
+    }
+
+    // Render an edit form
+    res.render('publishers/edit', { publisher });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error fetching publisher.');
+  }
+});
+
+// Update a publisher's name
+router.post('/edit/:id', async (req, res) => {
+  const { id } = req.params;
+  const { publisherName } = req.body;
+
+  try {
+    // Update the publisher's name
+    await prisma.gamePublishers.update({
+      where: { id: parseInt(id) },
+      data: { publisher: publisherName },
+    });
+
+    res.redirect('/publishers');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error updating publisher.');
+  }
+});
+
+
 module.exports = router;
