@@ -1,0 +1,67 @@
+/* Publishers Games Page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #00d8ff;
+    margin: 20px 0;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    background-color: #1a1a1a;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ul li a {
+    color: #00d8ff;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  ul li span {
+    color: #bbb;
+    font-size: 1rem;
+  }
+  
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #00d8ff;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    ul li a {
+      font-size: 1rem;
+    }
+  }
+  

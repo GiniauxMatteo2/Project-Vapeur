@@ -1,0 +1,99 @@
+/* Publishers List Page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #00d8ff;
+    margin: 20px 0;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 20px 0;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    background-color: #1a1a1a;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ul li a {
+    color: #00d8ff;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  ul li form {
+    display: inline;
+  }
+  
+  ul li input {
+    padding: 5px;
+    margin-right: 10px;
+    font-size: 1rem;
+  }
+  
+  ul li button {
+    padding: 5px 10px;
+    background-color: #00d8ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  ul li button:hover {
+    background-color: #008fa5;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+  }
+  
+  form {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  form input {
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+  
+  form button {
+    padding: 10px 20px;
+    background-color: #00d8ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+  }
+  
