@@ -28,6 +28,7 @@ model Games {
   publishersId  Int
   genre       Genre           @relation(fields: [genreId], references: [id]) // Relation avec Genre
   publishers  GamePublishers  @relation(fields: [publishersId], references: [id])
+  feature    GameFeatures[]
 }
 
 
@@ -35,4 +36,10 @@ model GamePublishers {
   id        Int    @id @default(autoincrement())
   publisher String
   games     Games[] 
+}
+
+model GameFeatures {
+  id      Int    @id @default(autoincrement())
+  gameId  Int    @unique // Each game can only be featured once
+  game    Games  @relation(fields: [gameId], references: [id])
 }

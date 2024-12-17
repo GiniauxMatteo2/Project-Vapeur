@@ -19,6 +19,9 @@ const genresRoutes = require('./routes/genres'); // Routes requise pour les genr
 app.use('/genres', genresRoutes);
 app.use(express.static(path.join(__dirname, 'public')));
 
+const featuresRoutes = require('./routes/features'); // Routes requise pour les features
+app.use('/features', featuresRoutes);
+
 
 // Fonction pour initialiser les genres de jeux dans la base de données
 async function seedGenres() {
@@ -98,11 +101,13 @@ hbs.registerHelper("formatForInput", (dateString) => {
 hbs.registerHelper("eq", (a, b) => a === b);
 
 
+
 app.get("/", async (req, res) => {
-    // on passe seulement le nom du fichier .hbs sans l'extention.
-    // Le chemin est relatif au dossier `views`.
-    // On peut aller chercher des templates dans les sous-dossiers (e.g. `movies/details`).
-    res.render("index");
+  const featuredGames = await prisma.gameFeatures.findMany({
+    include: { game: true }
+  });
+
+  res.render("index", { featuredGames });
 });
 
 

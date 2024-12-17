@@ -1,0 +1,26 @@
+<h1>Change Featured Games</h1>
+
+{{#if message}}
+  <p>{{message}}</p>
+  <a href="/features">Back to Featured Games</a>
+{{else}}
+  <form action="/features/add" method="POST">
+    {{#each gamesByGenre}}
+      <h2>{{@key}}</h2>
+      <ul>
+        {{#each this}}
+          <li>
+            <input type="checkbox" name="gameIds[]" value="{{id}}" id="game-{{id}}" 
+                   {{#if isFeatured}}disabled{{/if}} >
+            <label for="game-{{id}}">
+              {{title}} - {{releaseDate}} 
+              {{#if isFeatured}}(Already Featured){{/if}}
+            </label>
+          </li>
+        {{/each}}
+      </ul>
+    {{/each}}
+    <button type="submit">Add Featured Games</button>
+  </form>
+  <a href="/features">Back to Featured Games</a>
+{{/if}}
