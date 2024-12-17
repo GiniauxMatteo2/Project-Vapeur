@@ -31,6 +31,8 @@ Make sure you have the following installed on your machine:
 
    Follow these steps to install and run the project locally:
 
+   ```bash
+
    - npm init -y
    - npm install express
    - npm install prisma @prisma/client sqlite3
