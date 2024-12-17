@@ -1,0 +1,72 @@
+/* Page des genres */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #00d8ff;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  ul li {
+    background-color: #1a1a1a;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  ul li a {
+    color: #00d8ff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+  }
+  
+  ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #00d8ff;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    ul li {
+      width: 90%;
+    }
+  
+    a {
+      font-size: 1rem;
+    }
+  }
+  

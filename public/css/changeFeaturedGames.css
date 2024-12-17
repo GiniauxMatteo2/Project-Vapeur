@@ -1,0 +1,130 @@
+/* Page Change Featured Games */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #00d8ff;
+  margin-top: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  background-color: #1a1a1a;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+ul li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+ul li label {
+  color: white;
+  font-size: 1rem;
+}
+
+ul li label[for^="game-"] {
+  display: inline-block;
+  width: calc(100% - 40px); /* S'assurer que le label occupe tout l'espace restant */
+}
+
+ul li label[for^="game-"]:disabled {
+  color: #999;
+}
+
+button {
+  background-color: #00d8ff;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #008fb3;
+}
+
+a {
+  color: #00d8ff;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  color: #00d8ff;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Layout adjustments */
+form {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+form h2 {
+  margin-top: 0;
+}
+
+form ul {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  /* Responsive adjustments for small screens */
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  ul li {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+
+  a {
+    font-size: 0.9rem;
+  }
+}
