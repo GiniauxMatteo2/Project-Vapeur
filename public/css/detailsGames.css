@@ -58,8 +58,8 @@ body {
   }
   
   a:hover {
-    background-color: #00d8ff;
-    color: #121212;
+    
+    color: #f8f2f2;
   }
   
   a + a {
