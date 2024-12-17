@@ -5,7 +5,7 @@
   {{#if featuredGames.length}}
     {{#each featuredGames}}
       <li>
-        <strong>{{game.title}}</strong> - {{game.description}} 
+        <a href="/games/{{game.id}}/details"><strong>{{game.title}}</strong> </a> - {{game.description}} 
       </li>
     {{/each}}
   {{else}}
